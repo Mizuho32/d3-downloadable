@@ -101,6 +101,7 @@ var downloadable = function downloadable() {
         return String.fromCharCode('0x' + p1);
       }));
       toCanvas(base64SvgText, width, height, function (canvas) {
+        window.canvas = canvas;
         createMenu(pos, filename, canvas, base64SvgText);
       });
       _d32['default'].event.preventDefault();

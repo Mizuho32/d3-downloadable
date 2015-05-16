@@ -136,6 +136,7 @@ const downloadable = () => {
           .replace(/%([0-9A-F]{2})/g,
                    (match, p1) => String.fromCharCode('0x' + p1)));
       toCanvas(base64SvgText, width, height, (canvas) => {
+	window.canvas = canvas;
         createMenu(pos, filename, canvas, base64SvgText);
       });
       d3.event.preventDefault();
