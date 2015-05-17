@@ -105,8 +105,8 @@ var downloadable = function downloadable() {
       });
       _d32['default'].event.preventDefault();
 
-      _d32['default'].select('body').on('click#downloadable-css', function () {
-        _d32['default'].select('#downloadable-css').remove();
+      _d32['default'].select('body').on('click.download-menu', function () {
+        _d32['default'].selectAll('.download-menu').remove();
       });
     });
   };
