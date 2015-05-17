@@ -141,6 +141,10 @@ const downloadable = () => {
         createMenu(pos, filename, canvas, base64SvgText);
       });
       d3.event.preventDefault();
+
+      d3.select('body').on('click#downloadable-css', function(){
+        d3.select("#downloadable-css").remove();
+      });
     });
   };
 

@@ -104,6 +104,10 @@ var downloadable = function downloadable() {
         createMenu(pos, filename, canvas, base64SvgText);
       });
       _d32['default'].event.preventDefault();
+
+      _d32['default'].select('body').on('click#downloadable-css', function () {
+        _d32['default'].select('#downloadable-css').remove();
+      });
     });
   };
 
