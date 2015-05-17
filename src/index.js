@@ -138,6 +138,10 @@ const downloadable = () => {
         createMenu(pos, filename, canvas, base64SvgText);
       });
       d3.event.preventDefault();
+
+      d3.select('body').on('click.download-menu', () => {
+        d3.selectAll(".download-menu").remove();
+      });
     });
   };
 
