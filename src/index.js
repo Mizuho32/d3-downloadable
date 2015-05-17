@@ -77,9 +77,6 @@ const createMenu = (pos, filename, canvas, base64SvgText) => {
       '-webkit-box-shadow': '0 6px 12px rgba(0,0,0,.175)',
       'box-shadow': '0 6px 12px rgba(0,0,0,.175)',
       'background-clip': 'padding-box'
-    })
-    .on('mouseleave', () => {
-      menu.remove();
     });
   const list = menu
     .append('li');

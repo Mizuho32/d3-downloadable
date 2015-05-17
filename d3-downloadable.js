@@ -53,8 +53,6 @@ var createMenu = function createMenu(pos, filename, canvas, base64SvgText) {
     '-webkit-box-shadow': '0 6px 12px rgba(0,0,0,.175)',
     'box-shadow': '0 6px 12px rgba(0,0,0,.175)',
     'background-clip': 'padding-box'
-  }).on('mouseleave', function () {
-    menu.remove();
   });
   var list = menu.append('li');
   list.append('a').text('Save as SVG').attr({
