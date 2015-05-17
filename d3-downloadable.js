@@ -16,8 +16,6 @@ var _d3 = require('d3');
 
 var _d32 = _interopRequireDefault(_d3);
 
-'use strict';
-
 var css = '.download-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  z-index: 1000;\n  display: inline-block;\n  float: left;\n  min-width: 160px;\n  padding: 5px 0;\n  margin: 2px 0 0;\n  list-style: none;\n  font-size: 14px;\n  background-color: #fff;\n  border: 1px solid #ccc;\n  border: 1px solid rgba(0,0,0,.15);\n  border-radius: 4px;\n  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\n  box-shadow: 0 6px 12px rgba(0,0,0,.175);\n  background-clip: padding-box;\n}\n\n.download-menu>li>a {\n  display: block;\n  padding: 3px 20px;\n  clear: both;\n  font-weight: 400;\n  line-height: 1.42857143;\n  color: #333;\n  white-space: nowrap;\n  text-decoration: none;\n  background: 0 0;\n}\n\n.download-menu>li>a:hover, .download-menu>li>a:focus {\n  text-decoration: none;\n  color: #262626;\n  background-color: #f5f5f5;\n}';
 
 var toCanvas = function toCanvas(svgData, width, height, callback) {
@@ -29,7 +27,7 @@ var toCanvas = function toCanvas(svgData, width, height, callback) {
   canvas.height = height;
   image.onload = function () {
     context.drawImage(image, 0, 0);
-    callback(canvas);
+    callback(canvas, image);
   };
   image.src = src;
 };
@@ -100,8 +98,9 @@ var downloadable = function downloadable() {
       var base64SvgText = btoa(encodeURIComponent(svgText).replace(/%([0-9A-F]{2})/g, function (match, p1) {
         return String.fromCharCode('0x' + p1);
       }));
-      toCanvas(base64SvgText, width, height, function (canvas) {
+      toCanvas(base64SvgText, width, height, function (canvas, image) {
         window.canvas = canvas;
+        window.image = image;
         createMenu(pos, filename, canvas, base64SvgText);
       });
       _d32['default'].event.preventDefault();

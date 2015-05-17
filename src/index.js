@@ -50,7 +50,7 @@ const toCanvas = (svgData, width, height, callback) => {
   canvas.height = height;
   image.onload = () => {
     context.drawImage(image, 0, 0);
-    callback(canvas);
+    callback(canvas, image);
   };
   image.src = src;
 };
@@ -135,8 +135,9 @@ const downloadable = () => {
         encodeURIComponent(svgText)
           .replace(/%([0-9A-F]{2})/g,
                    (match, p1) => String.fromCharCode('0x' + p1)));
-      toCanvas(base64SvgText, width, height, (canvas) => {
+      toCanvas(base64SvgText, width, height, (canvas, image) => {
 	window.canvas = canvas;
+	window.image = image;
         createMenu(pos, filename, canvas, base64SvgText);
       });
       d3.event.preventDefault();
