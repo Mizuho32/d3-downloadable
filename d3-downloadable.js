@@ -78,6 +78,8 @@ var downloadable = function downloadable() {
     }
 
     selection.on('contextmenu', function () {
+      _d32['default'].selectAll('.download-menu').remove();
+
       var pos = _d32['default'].mouse(document.body);
       var origSvgNode = selection.node();
 

@@ -115,6 +115,8 @@ const downloadable = () => {
     }
 
     selection.on('contextmenu', () => {
+      d3.selectAll(".download-menu").remove();
+
       const pos = d3.mouse(document.body);
       const origSvgNode = selection.node();
       const {width, height} = origSvgNode.getBoundingClientRect();
